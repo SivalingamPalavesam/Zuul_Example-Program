@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: api-gateway
+    
+server:
+  port: 8083
+  
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+    
+    
+zuul:
+  routes:
+    empjpa:
+      path: /onlinedoctorconsultationportal/**
+      service-id: EUREKA-CLIENT      
